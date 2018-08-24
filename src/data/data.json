@@ -1,0 +1,96 @@
+{
+    "navigation": [
+        {
+            "name": "Сводка",
+            "href": "/"
+        }, {
+            "name": "Устройства",
+            "href": "#"
+        },
+        {
+            "name": "Сценарии",
+            "href": "#"
+        }
+    ],
+    "main": {
+        "username": "Геннадий",
+        "status": "Двери и окна закрыты, сигнализация включена.",
+        "weather": {
+            "temperature": {
+                "inside": 23,
+                "outside": 19
+            },
+            "type": "rain"
+        }
+    },
+    "devices": [
+        {
+            "name": "Xiaomi Yeelight LED Smart Bulb",
+            "icon": "sun",
+            "status": "Включено",
+            "active": true
+        },
+        {
+            "name": "D-Link Omna 180 Cam",
+            "icon": "sun",
+            "status": "Включится в 17:00",
+            "active": false
+        },
+        {
+            "name": "Elgato Eve Degree Connected",
+            "icon": "thermometer",
+            "status": "Выключено до 17:00",
+            "active": false
+        },
+        {
+            "name": "LIFX Mini Day & Dusk A60 E27",
+            "icon": "sun",
+            "status": "Включится в 17:00",
+            "active": false
+        },
+        {
+            "name": "Xiaomi Mi Air Purifier 2S",
+            "icon": "sun",
+            "status": "Включено",
+            "active": true
+        },
+        {
+            "name": "Philips Zhirui",
+            "icon": "sun",
+            "status": "Выключено",
+            "active": false
+        }
+    ],
+    "scripts": [
+        {
+            "name": "Выключить весь свет в доме и во дворе",
+            "icon": "sun",
+            "status": "",
+            "active": true
+        },
+        {
+            "name": "Я ухожу",
+            "icon": "clock",
+            "status": "",
+            "active": false
+        },
+        {
+            "name": "Включить свет в коридоре",
+            "icon": "sun",
+            "status": "",
+            "active": true
+        },
+        {
+            "name": "Набрать горячую ванну",
+            "icon": "thermometer",
+            "status": "Начнётся в 18:00",
+            "active": true
+        },
+        {
+            "name": "Сделать пол тёплым во всей квартире",
+            "icon": "thermometer",
+            "status": "",
+            "active": true
+        }
+    ]
+}

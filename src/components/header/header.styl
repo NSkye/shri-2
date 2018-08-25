@@ -1,0 +1,30 @@
+@import '../../variables'
+
+body.blured .header
+    makeblur()
+
+.header
+    height 92px
+    width 100%
+    background $brightBackground
+    border-bottom 1px solid #F0F0F0
+    display flex
+    position fixed
+    backgrouind #fff
+    &__mobileview
+        display flex
+        justify-content space-between
+        align-items center
+        background #fff
+        padding-left 38px
+        padding-right 38px
+    @media(max-width $breakpoint)
+        flex-direction column
+        height auto
+        border none 
+        &__mobileview
+            height auto
+            padding-left 20px
+            padding-right 20px
+            padding-top 12px
+            padding-bottom 12px

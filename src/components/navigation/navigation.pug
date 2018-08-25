@@ -1,5 +1,7 @@
 mixin navigation(items)
-    ul.navigation
-        each item in items
-            li.navigation__item
-                a(href=item.href)= item.name
+    nav.navigation
+        ul.navigation__list
+            each item in items
+                li.navigation__item
+                    a.navigation__link(href=item.href)
+                        span= item.name

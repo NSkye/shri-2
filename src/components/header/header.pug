@@ -1,4 +1,9 @@
 mixin header(navitems)
     header.header
+        div.header__mobileview
+            include ../logo/logo
+            +logo
+            include ../nav-button/nav-button
+            +nav-button
         include ../navigation/navigation
         +navigation(navitems)

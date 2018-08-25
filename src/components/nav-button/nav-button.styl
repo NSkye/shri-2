@@ -1,0 +1,47 @@
+@import '../../variables'
+
+$time = .2s
+
+d2(a)
+    a / 2
+animate-backwards(function, timing)
+    transition margin d2(timing) function d2(timing), transform d2(timing) function
+animate-forwards(function, timing)
+    transition margin d2(timing) function, transform d2(timing) function d2(timing)
+deploy-el(m, time)
+    content ""
+    position absolute
+    height 20%
+    width 100%
+    background url(assets/icon_list_m_adj@1x.svg)
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+    margin-top m
+    animate-backwards(ease, time)
+set-btn-size(s)
+    height s
+    width s
+  
+.nav-button
+    set-btn-size(16px)
+    display none
+    position relative
+    &:hover
+        cursor pointer
+    &::before
+        deploy-el(0%, $time)
+    &__element
+        deploy-el(40%, $time)
+    &::after
+        deploy-el(80%, $time)
+    &--active
+        &::before, &::after, &>.nav-button__element
+            margin-top 40%
+            animate-forwards(ease, $time)
+        &::before, &::after
+            transform rotate(45deg)
+        &>.nav-button__element
+            transform rotate(-45deg)
+    @media(max-width $breakpoint)
+        display block

@@ -32,10 +32,8 @@ gulp.task('browser-sync', function(done) {
             baseDir: './public'
         }
     });
-    gulp.watch('src/**/*.pug', gulp.series('views-refresh'));
-    gulp.watch('src/data/*.json', gulp.series('views-refresh'));
-    gulp.watch('src/**/*.js', gulp.series('webpack-refresh'));
-    gulp.watch('src/**/*.styl', gulp.series('webpack-refresh'));
+    gulp.watch(['src/**/*.pug', 'src/data/*.json'], gulp.series('views-refresh'));
+    gulp.watch(['src/**/*.js', 'src/**/*.styl'], gulp.series('webpack-refresh'));
     done();
 });
 gulp.task('views', buildHTML);

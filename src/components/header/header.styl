@@ -10,14 +10,15 @@ body.blured .header
     border-bottom 1px solid #F0F0F0
     display flex
     position fixed
-    backgrouind #fff
+    background $brightBackground
     &__mobileview
         display flex
         justify-content space-between
         align-items center
-        background #fff
+        background $brightBackground
         padding-left 38px
         padding-right 38px
+        z-index 2
     @media(max-width $breakpoint)
         flex-direction column
         height auto

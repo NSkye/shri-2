@@ -5,7 +5,7 @@
     display flex
     position relative
     @media(max-width $breakpoint)
-        z-index -1
+        z-index 1
         margin-top -400px
         transition margin-top .2s
         &--open
@@ -14,6 +14,7 @@
         resetListStyle()
         display flex
         bottom 0
+        background $brightBackground
         @media(max-width $breakpoint)
             overflow hidden
             height auto
@@ -38,5 +39,10 @@
             width 100%
             display flex
             justify-content center
+        &:hover
+            color $YandexRed
         &--active
             color $activeText
+            &:hover
+                color inherit 
+        

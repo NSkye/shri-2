@@ -76,10 +76,27 @@ body.blured .summary
             background-position center
             margin-left .5rem
     &__devices
+        flexColumn()
         height 100%
         width 220px
-        background grey
+        padding-top 10px
+        overflow hidden
+        position relative
+        &::before
+            content ''
+            position absolute
+            bottom 14.5px
+            height 16px
+            width 100%
+            background-image url(assets/double-arrow.svg)
+            background-repeat no-repeat
+            background-size contain
+            background-position center
+            @media(max-width $breakpoint)
+                display none
         @media(max-width $breakpoint)
+            flex-direction row
+            padding-left 10px
             height 140px
             width 100%
 

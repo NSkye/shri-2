@@ -1,4 +1,4 @@
-mixin summary(data)
+mixin summary(data, devices)
     include ../info-block/info-block
     +info-block('Главное', 'summary')
         div.summary__container
@@ -12,3 +12,7 @@ mixin summary(data)
                     div.summary__temp.summary__temp--outside= outside
                     div.summary__weather-icon(class='summary__weather-icon'+'--'+data.weather.type)
             div.summary__devices
+                include ../device/device
+                each dvce in devices
+                    +device(dvce)
+

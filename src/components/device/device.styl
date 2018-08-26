@@ -1,0 +1,35 @@
+@import '../../variables'
+
+.device
+    flexRowJustify(center)
+    align-content center
+    height 120px
+    width 200px
+    padding 10px
+    font-family Arial, sans-serif
+    &__container
+        flexColumnJustify(space-between)
+        height 120px
+        width 200px
+        background $darkenBackground
+        border-radius 10px
+        transition box-shadow .2s, background .2s
+        &:hover
+            cursor pointer
+            background $brightBackground
+            box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
+    &__info
+        flexColumn()
+        padding-bottom 14px
+        padding-left 20px
+        padding-right 20px
+    &__name
+        font-size 14px
+        line-height 16px
+        font-weight bold
+        color $activeText
+    &__status
+        padding-top 3px
+        font-size 12px
+        line-height 14px
+        color $inactiveText

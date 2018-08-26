@@ -1,0 +1,9 @@
+mixin device(device)
+    div.device
+        div.device__container
+            include ../icon/icon
+            +icon(device.icon, device.active)
+            div.device__info
+                div.device__name= device.name
+                - if (device.status && device.status !== '')
+                    div.device__status= device.status

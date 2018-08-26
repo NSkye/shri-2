@@ -3,21 +3,35 @@
 .footer
     flexRowJustify(space-between)
     align-items center
+    position absolute
+    bottom 0
     box-sizing border-box
-    height 60px
+    height $footerHeight
     width 100%
     padding-left 40px
     padding-right 36px
     color $inactiveText
     font-family Arial, sans-serif
     font-size 12px
+    line-height 1.3em
+    @media(max-width $breakpoint)
+        flex-direction column
+        justify-content center
+    @media(max-width 330px)
+        font-size 10px
     &__links
         flexRow()
         height 100%
+        @media(max-width $breakpoint)
+            height auto
+            padding-bottom .3em
     &__link
         flexColumnJustify(center)
         height 100%
         padding-right 1em
         text-decoration none
+        text-align center
         color inherit
+        @media(max-width $breakpoint)
+            height auto
         

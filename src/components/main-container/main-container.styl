@@ -1,11 +1,12 @@
 @import '../../variables'
 
 .main-container
-    flexColumnJustify(space-between)
+    flexColumn()
     box-sizing border-box
     height 100vh
     width 100%
     padding-top $headerHeightDesktop+30px
+    padding-bottom $footerHeight
     @media(max-width $breakpoint)
         padding-top $headerHeightMobile
         height auto

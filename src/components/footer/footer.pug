@@ -1,0 +1,7 @@
+mixin footer(links, copyright)
+    footer.footer
+        div.footer__links
+            for link in links
+                a.footer__link(href=link.href)
+                    span= link.text
+        div.footer_copyright= copyright

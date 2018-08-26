@@ -10,6 +10,7 @@ html(lang="en")
         +header(data.navigation)
         include components/main-container/main-container
         +main-container
-            div= 'I AM TOP BLOCK'
-            div= 'I AM FOOTER'
+            div.dummy
+            include components/footer/footer
+            +footer(data.footer.links, data.footer.copyright)
     script(src="main.js")

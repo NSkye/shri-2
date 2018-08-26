@@ -5,9 +5,18 @@ body.blured .summary
 
 .summary
     padding-left 40px
+    @media(max-width $breakpoint)
+        padding-left 0
+        padding-left 20px
+        padding-right 20px
+        box-sizing border-box
+        width 100%
+    &__heading
+        @media(max-width $breakpoint)
+            display none
     &__container
-        flexRowJustify(space-between)
-        height 331px
+        flexRowJustify(center)
+        height 330px
         width 640px
         overflow hidden
         border-radius 15px
@@ -16,53 +25,56 @@ body.blured .summary
         background-size cover
         @media(max-width $breakpoint)
             flex-direction column
+            justify-content flex-start
+            height auto
+            width 100%
     &__core
         flexColumn()
         align-items flex-start
         width 360px
-        margin-top 25px
-        margin-left 25px
+        margin-top 2.5rem
+        margin-left 2.5rem
         font-family Arial, sans-serif
         font-color $activeText
     &__greeting
         width 100%
         font-weight bold
-        line-height 30px
-        font-size 27px
+        line-height 3rem
+        font-size 2.7rem
     &__status
         width 100%
-        font-size 14px
-        line-height 16px
+        font-size 1.4rem
+        line-height 1.6rem
         margin-top 6px
     &__weather
         flexRow()
-        padding-top 25px
+        padding-top 2.5rem
         align-items flex-end
     &__temp
         flexColumn()
-        font-size 36px
+        font-size 3.6rem
         font-weight bold
-        line-height 42px
+        line-height 4.2rem
         &:nth-child(1)
-            margin-right 18px
+            margin-right 1.8rem
         &--outside::before
             content 'За окном'
         &--inside::before
             content 'Дома'
         &--outside::before, &--inside::before
-            font-size 14px
-            line-height 16px
+            font-size 1.4rem
+            line-height 1.6rem
             color $inactiveText
             font-weight 400
     &__weather-icon
-        height 43px
-        width 26px
+        height 4.3rem
+        width 2.6rem
         &--rain
             background url(../../assets/cloud-drizzle.svg)
             background-repeat no-repeat
             background-size contain
             background-position center
-            margin-left 5px
+            margin-left .5rem
     &__devices
         height 100%
         width 220px

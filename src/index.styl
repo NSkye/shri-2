@@ -1,5 +1,12 @@
+@import './variables'
+
 html, body
     height 100%
 body
     display flex
     flex-direction column
+
+html // 1rem - 10px
+    font-size 10px
+    @media(max-width $breakpoint)
+        font-size 1.9vw

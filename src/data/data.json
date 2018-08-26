@@ -28,37 +28,50 @@
             "name": "Xiaomi Yeelight LED Smart Bulb",
             "icon": "sun",
             "status": "Включено",
-            "active": true
+            "active": true,
+            "control": "LIGHT"
         },
         {
             "name": "D-Link Omna 180 Cam",
             "icon": "sun",
             "status": "Включится в 17:00",
-            "active": false
+            "active": false,
+            "control": "LIGHT"
         },
         {
             "name": "Elgato Eve Degree Connected",
             "icon": "thermometer",
             "status": "Выключено до 17:00",
-            "active": false
+            "active": false,
+            "control": "TEMP"
         },
         {
             "name": "LIFX Mini Day & Dusk A60 E27",
             "icon": "sun",
             "status": "Включится в 17:00",
-            "active": false
+            "active": false,
+            "control": "LIGHT"
         },
         {
             "name": "Xiaomi Mi Air Purifier 2S",
             "icon": "sun",
             "status": "Включено",
-            "active": true
+            "active": true,
+            "control": "LIGHT"
         },
         {
             "name": "Philips Zhirui",
             "icon": "sun",
             "status": "Выключено",
-            "active": false
+            "active": false,
+            "control": "LIGHT"
+        },
+        {
+            "name": "Xiaomi Warm Floor",
+            "icon": "thermometer",
+            "status": "",
+            "active": true,
+            "control": "TEMP_DIAL"
         }
     ],
     "scripts": [

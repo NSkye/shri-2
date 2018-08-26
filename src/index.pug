@@ -10,6 +10,8 @@ html(lang="en")
         +header(data.navigation)
         include components/main-container/main-container
         +main-container
+            include components/summary/summary
+            +summary(data.main)
         include components/footer/footer
         +footer(data.footer.links, data.footer.copyright)
     script(src="main.js")

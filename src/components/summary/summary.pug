@@ -1,0 +1,14 @@
+mixin summary(data)
+    include ../info-block/info-block
+    +info-block('Главное', 'summary')
+        div.summary__container
+            div.summary__core
+                div.summary__greeting= 'Привет, '+data.username+'!'
+                div.summary__status= data.status
+                div.summary__weather
+                    - var outside = data.weather.temperature.outside > 0 ? '+' + data.weather.temperature.outside : data.weather.temperature.outside
+                    - var inside = data.weather.temperature.inside > 0 ? '+' + data.weather.temperature.inside : data.weather.temperature.inside
+                    div.summary__temp.summary__temp--inside= inside
+                    div.summary__temp.summary__temp--outside= outside
+                    div.summary__weather-icon(class='summary__weather-icon'+'--'+data.weather.type)
+            div.summary__devices

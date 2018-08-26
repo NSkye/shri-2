@@ -3,6 +3,9 @@
 body.blured .header
     makeblur()
 
+body.blured.nav-open .header
+    filter none
+
 .header
     flexRow()
     position fixed
@@ -10,6 +13,7 @@ body.blured .header
     width 100%
     background $brightBackground
     border-bottom 1px solid #F0F0F0
+    z-index 5
     &__mobileview
         flexRowJustify(space-between)
         align-items center

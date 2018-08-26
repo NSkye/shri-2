@@ -12,6 +12,9 @@ const navigationLinks = document.querySelectorAll('.navigation__link');
 globalAPI.add('navigation', {
     toggle() {
         const nav = document.querySelector('.navigation');
+        const body = document.querySelector('body');
         nav.classList.toggle('navigation--open');
+        body.classList.toggle('nav-open');
+        body.classList.toggle('blured');
     }
 })

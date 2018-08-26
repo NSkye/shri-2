@@ -1,0 +1,75 @@
+@import '../../variables'
+
+body.blured .summary
+    makeblur()
+
+.summary
+    padding-left 40px
+    &__container
+        flexRowJustify(space-between)
+        height 331px
+        width 640px
+        overflow hidden
+        border-radius 15px
+        background url(../../assets/bg@1x.png)
+        background-repeat no-repeat
+        background-size cover
+        @media(max-width $breakpoint)
+            flex-direction column
+    &__core
+        flexColumn()
+        align-items flex-start
+        width 360px
+        margin-top 25px
+        margin-left 25px
+        font-family Arial, sans-serif
+        font-color $activeText
+    &__greeting
+        width 100%
+        font-weight bold
+        line-height 30px
+        font-size 27px
+    &__status
+        width 100%
+        font-size 14px
+        line-height 16px
+        margin-top 6px
+    &__weather
+        flexRow()
+        padding-top 25px
+        align-items flex-end
+    &__temp
+        flexColumn()
+        font-size 36px
+        font-weight bold
+        line-height 42px
+        &:nth-child(1)
+            margin-right 18px
+        &--outside::before
+            content 'За окном'
+        &--inside::before
+            content 'Дома'
+        &--outside::before, &--inside::before
+            font-size 14px
+            line-height 16px
+            color $inactiveText
+            font-weight 400
+    &__weather-icon
+        height 43px
+        width 26px
+        &--rain
+            background url(../../assets/cloud-drizzle.svg)
+            background-repeat no-repeat
+            background-size contain
+            background-position center
+            margin-left 5px
+    &__devices
+        height 100%
+        width 220px
+        background grey
+        @media(max-width $breakpoint)
+            height 140px
+            width 100%
+
+
+

@@ -8,4 +8,8 @@ html(lang="en")
     body
         include components/header/header
         +header(data.navigation)
+        include components/main-container/main-container
+        +main-container
+            div= 'I AM TOP BLOCK'
+            div= 'I AM FOOTER'
     script(src="main.js")

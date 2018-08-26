@@ -4,20 +4,20 @@ body.blured .header
     makeblur()
 
 .header
+    flexRow()
+    position fixed
     height 92px
     width 100%
     background $brightBackground
     border-bottom 1px solid #F0F0F0
-    display flex
-    position fixed
-    background $brightBackground
     &__mobileview
-        display flex
-        justify-content space-between
+        flexRowJustify(space-between)
         align-items center
-        background $brightBackground
+        box-sizing border-box
+        min-height 62px
         padding-left 38px
         padding-right 38px
+        background $brightBackground
         z-index 2
     @media(max-width $breakpoint)
         flex-direction column

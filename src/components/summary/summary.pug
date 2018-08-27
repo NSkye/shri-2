@@ -1,6 +1,9 @@
 mixin summary(data, devices)
     include ../info-block/info-block
-    +info-block('Главное', 'summary')
+    include ../block-heading/block-heading
+    +info-block('summary')
+        +block-heading('summary')
+            span= 'Главное'
         div.summary__container
             div.summary__core
                 div.summary__greeting= 'Привет, '+data.username+'!'

@@ -1,0 +1,15 @@
+mixin featured-scripts(scripts)
+    include ../info-block/info-block
+    include ../block-heading/block-heading
+    include ../script-block/script-block
+    +info-block('featured-scripts')
+        +block-heading('featured-scripts')
+            span= 'Избранные сценарии'
+        div.featured-scripts__container
+            each script, index in scripts
+                - if (index%9 == 0)
+                    - var chunk = scripts.slice(index, index+9)
+                    if (chunk.length!==0)
+                        div.featured-scripts__page
+                            each val in chunk
+                                +script-block(val)

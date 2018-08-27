@@ -1,18 +1,22 @@
 @import '../../variables'
 
-.device
-    flexRowJustify(center)
-    align-content center
-    min-height 120px
-    min-width 200px
-    padding 10px
+.script
+    flexRowJustify(flex-end)
+    align-items center
+    min-width 210px
+    min-height 110px
+    width 207px
+    height 107px
     font-family Arial, sans-serif
     &__container
         flexColumnJustify(space-between)
-        height 120px
+        box-sizing border-box
+        min-width 200px
+        min-height 100px
         width 200px
+        height 100px
+        border-radius 22px
         background $darkenBackground
-        border-radius 23px
         transition box-shadow .2s, background .2s
         &:hover
             cursor pointer
@@ -20,16 +24,15 @@
             box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
     &__info
         flexColumn()
-        padding-bottom 14px
-        padding-left 20px
-        padding-right 20px
+        padding 15px
     &__name
         font-size 14px
         line-height 16px
         font-weight bold
         color $activeText
     &__status
-        padding-top 3px
+        padding-top 5px
         font-size 12px
         line-height 14px
+        font-weight 400
         color $inactiveText

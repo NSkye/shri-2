@@ -1,0 +1,9 @@
+mixin script-block(script)
+    div.script
+        div.script__container
+            include ../icon/icon
+            +icon(script.icon, script.active)
+            div.script__info
+                div.script__name= script.name
+                - if (script.status && script.status)
+                    div.script__status= script.status

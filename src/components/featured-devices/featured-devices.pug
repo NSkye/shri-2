@@ -8,7 +8,8 @@ mixin featured-devices(devices)
         +block-heading('featured-devices')
             span.featured-devices__left-block
                 span.featured-devices__caption= 'Избранные устройства'
-                +collapsable-tag-list(['Все', 'Кухня', 'Зал', 'Лампочки', 'Камеры'])
+                span.featured-devices__tag-list-wrapper
+                    +collapsable-tag-list(['Все', 'Кухня', 'Зал', 'Лампочки', 'Камеры'])
             +controls('featured-devices')
         div.featured-devices__container
             each dvc in devices

@@ -3,22 +3,25 @@
 .collapsable-tag-list
     flexRow()
     flex-wrap nowrap
+    align-content center
     @media(max-width $breakpoint)
         flex-direction column
         align-content flex-start
         max-height 36px
         z-index 3
+        position absolute
+        top 0
     &__tag
         margin-right 10px
+        min-height 36px
+        transition all .2s
+        &:hover
+            background $brightBackground
+            box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
         @media(max-width $breakpoint)
             margin-right 0
-            margin-bottom 10px
+            margin-bottom 0
             display none
-            .collapsable-tag-list--uncollapsed &
-                display flex
-                box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
-                &:hover
-                    background $brightBackground
             &:nth-child(1)
                 flexRowJustify(space-between)
                 align-items center
@@ -32,3 +35,7 @@
                     background-repeat no-repeat
                     background-position center
                     background-size contain
+            .collapsable-tag-list--uncollapsed &
+                display flex
+                margin-bottom 10px
+                box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)

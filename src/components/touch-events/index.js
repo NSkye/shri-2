@@ -19,7 +19,6 @@ module.exports = function touchScroll(area, target, widthY=false, onlyMobile=fal
             return;
         }
 
-        e.preventDefault()
         const diffX = tmpX - e.touches[0].clientX
         target.scrollLeft = diffX
         if (widthY) {

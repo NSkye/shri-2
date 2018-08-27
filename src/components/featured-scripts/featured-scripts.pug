@@ -5,6 +5,9 @@ mixin featured-scripts(scripts)
     +info-block('featured-scripts')
         +block-heading('featured-scripts')
             span= 'Избранные сценарии'
+            div.featured-scripts__controls
+                div.featured-scripts__backward
+                div.featured-scripts__forward
         div.featured-scripts__container
             each script, index in scripts
                 - if (index%9 == 0)

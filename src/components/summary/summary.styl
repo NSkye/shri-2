@@ -1,7 +1,8 @@
 @import '../../variables'
 
 body.blured .summary
-    makeblur()
+    @media(max-width $breakpoint)
+        makeblur()
 
 .summary
     padding-left 40px

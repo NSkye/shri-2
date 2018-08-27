@@ -1,7 +1,8 @@
 @import '../../variables'
 
 body.blured .featured-scripts
-    makeblur()
+    @media(max-width $breakpoint)
+        makeblur()
 
 .featured-scripts
     flexColumn()

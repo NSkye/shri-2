@@ -1,7 +1,9 @@
 @import '../../variables'
 
 body.blured .featured-devices
-    makeblur()
+    @media(max-width $breakpoint)
+        makeblur()
+    
 
 .featured-devices
     flexColumn()

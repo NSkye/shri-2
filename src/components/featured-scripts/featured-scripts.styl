@@ -1,5 +1,8 @@
 @import '../../variables'
 
+body.blured .featured-scripts
+    makeblur()
+
 .featured-scripts
     flexColumn()
     overflow hidden
@@ -29,11 +32,11 @@
         overflow hidden
         height auto
         width 100vw
-        transition padding .2s
         @media(max-width 1364px)
             margin 0
             justify-content flex-start
             padding-left 10px
+            //padding-right 10px
     &__page
         flexRow()
         flex-wrap wrap

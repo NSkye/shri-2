@@ -17,6 +17,7 @@ body.blured .summary
             display none
     &__container
         flexRowJustify(space-between)
+        position relative
         height 330px
         min-width 640px
         width 100vw
@@ -33,6 +34,20 @@ body.blured .summary
             width 100%
             min-width 0
             max-width none
+        &::before
+            content ''
+            position absolute
+            bottom 5px
+            right 110px
+            height 16px
+            width 16px
+            background-image url(assets/double-arrow.svg)
+            background-repeat no-repeat
+            background-size contain
+            background-position center
+            z-index 4
+            @media(max-width $breakpoint)
+                display none
     &__core
         flexColumn()
         align-items flex-start
@@ -90,18 +105,6 @@ body.blured .summary
         position relative
         &--grabbed
             cursor grabbing
-        &::before
-            content ''
-            position absolute
-            bottom 14.5px
-            height 16px
-            width 100%
-            background-image url(assets/double-arrow.svg)
-            background-repeat no-repeat
-            background-size contain
-            background-position center
-            @media(max-width $breakpoint)
-                display none
         @media(max-width $breakpoint)
             flex-direction row
             padding-left 10px

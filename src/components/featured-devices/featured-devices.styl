@@ -1,0 +1,26 @@
+@import '../../variables'
+
+.featured-devices
+    flexColumn()
+    width 100%
+    margin-top 15px
+    &__heading
+        flexRowJustify(space-between)
+        box-sizing border-box
+        padding-left 40px
+        padding-right 40px
+        width 100%
+        @media(max-width 1364px)
+            padding-left 20px
+            padding-right 20px
+    &__container
+        flexRow()
+        flex-wrap nowrap
+        box-sizing border-box
+        width 100%
+        padding-left 30px
+        padding-right 30px
+        overflow hidden
+        @media(max-width 1364px)
+            padding-left 10px
+            padding-right 10px

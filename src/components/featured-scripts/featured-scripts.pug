@@ -2,12 +2,11 @@ mixin featured-scripts(scripts)
     include ../info-block/info-block
     include ../block-heading/block-heading
     include ../script-block/script-block
+    include ../controls/controls
     +info-block('featured-scripts')
         +block-heading('featured-scripts')
             span= 'Избранные сценарии'
-            div.featured-scripts__controls
-                div.featured-scripts__backward
-                div.featured-scripts__forward
+            +controls('featured-scripts')
         div.featured-scripts__container
             each script, index in scripts
                 - if (index%9 == 0)

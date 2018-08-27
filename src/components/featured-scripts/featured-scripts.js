@@ -8,7 +8,6 @@ forward.addEventListener('click', () => {
         return;
     }
     const page = notScrolledPages[0];
-    page.classList.remove('featured-scripts__page--uncollapse');
     page.classList.add('featured-scripts__page--scrolled');
 });
 
@@ -19,5 +18,4 @@ backward.addEventListener('click', () => {
     }
     const page = ScrolledPages[ScrolledPages.length - 1];
     page.classList.remove('featured-scripts__page--scrolled');
-    page.classList.remove('featured-scripts__page--uncollapse');
 });

@@ -5,19 +5,22 @@ body.blured .summary
 
 .summary
     padding-left 40px
-    @media(max-width $breakpoint)
+    @media(max-width 1364px)
         padding-left 0
+    @media(max-width $breakpoint)
         padding-left 20px
         padding-right 20px
         box-sizing border-box
         width 100%
     &__heading
-        @media(max-width $breakpoint)
+        @media(max-width 1364px)
             display none
     &__container
-        flexRowJustify(center)
+        flexRowJustify(space-between)
         height 330px
-        width 640px
+        min-width 640px
+        width 100vw
+        max-width 40vw
         overflow hidden
         border-radius 22px
         background url(../../assets/bg@1x.png)
@@ -28,6 +31,8 @@ body.blured .summary
             justify-content flex-start
             height auto
             width 100%
+            min-width 0
+            max-width none
     &__core
         flexColumn()
         align-items flex-start
@@ -78,6 +83,7 @@ body.blured .summary
     &__devices
         flexColumn()
         height 100%
+        padding-right 10px
         width 220px
         padding-top 10px
         overflow hidden

@@ -8,6 +8,10 @@ body
     user-select none
 
 html // 1rem - 10px
-    font-size 10px
+    font-size .73vw
+    @media(min-width 2000px)
+        font-size 14px
+    @media(max-width 1364px)
+        font-size 10px
     @media(max-width $breakpoint)
         font-size 1.9vw

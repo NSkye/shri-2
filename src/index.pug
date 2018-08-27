@@ -16,6 +16,9 @@ html(lang="en")
                 +summary(data.main, data.devices)
                 include components/featured-scripts/featured-scripts
                 +featured-scripts(data.scripts)
+            +row-wrapper
+                include components/featured-devices/featured-devices
+                +featured-devices(data.devices)
         include components/footer/footer
         +footer(data.footer.links, data.footer.copyright)
     script(src="main.js")

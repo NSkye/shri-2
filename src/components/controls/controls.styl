@@ -1,0 +1,20 @@
+@import '../../variables'
+
+.controls
+    flexRowJustify(space-between)
+    width 48px
+    height 16px
+    &__forward, &__backward
+        height 16px
+        width 16px
+        background-repeat no-repeat
+        background-size contain
+        background-position center
+        opacity 0.5
+        transition opacity .2s
+        background-image url(../../assets/arrow-left.svg)
+        &:hover
+            cursor pointer
+            opacity 1
+    &__forward
+        transform scale(-1, 1)

@@ -3,16 +3,20 @@
 .featured-scripts
     flexColumn()
     overflow hidden
-    flex-grow 1
     margin-left 16px
+    margin-right 30px
+    width auto
     @media(max-width 1364px)
         max-width 100%
         margin-left 0
+        margin-right 0
+        margin-top 15px
     &__heading
+        flexRowJustify(space-between)
         box-sizing border-box
         width 100%
-        padding-left 10px
-        padding-right 20px
+        padding-left 11px
+        padding-right 16px
         margin-bottom 0
         @media(max-width 1364px)
             padding-left 20px
@@ -22,10 +26,10 @@
         flexRow()
         flex-wrap nowrap
         box-sizing border-box
-        margin-right 30px
+        //margin-right 30px
         overflow hidden
         height auto
-        width auto
+        width 100vw
         transition padding .2s
         @media(max-width 1364px)
             margin 0
@@ -64,24 +68,6 @@
                 width auto
                 &:last-child
                     min-width 0
-    &__controls
-        flexRowJustify(space-between)
-        width 48px
-        height 16px
-    &__forward, &__backward
-        height 16px
-        width 16px
-        background-repeat no-repeat
-        background-size contain
-        background-position center
-        opacity 0.5
-        transition opacity .2s
-        background-image url(../../assets/arrow-left.svg)
-        &:hover
-            cursor pointer
-            opacity 1
-    &__forward
-        transform scale(-1, 1)
 
 
 .featured-scripts__container, .featured-scripts__heading

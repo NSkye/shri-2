@@ -1,0 +1,3 @@
+mixin tag(caption, additionalClass, active)
+    - var tClass = additionalClass + '__tag' + (active ? ' tag--active ' + additionalClass + '__tag--active' : '')
+    span.tag(class= tClass)= caption

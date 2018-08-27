@@ -1,0 +1,5 @@
+mixin collapsable-tag-list(tags)
+    include ../tag/tag
+    div.collapsable-tag-list
+        each tg, index in tags
+            +tag(tg, 'collapsable-tag-list', (index === 0))

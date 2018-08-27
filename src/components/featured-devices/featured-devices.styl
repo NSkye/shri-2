@@ -6,6 +6,7 @@
     margin-top 15px
     &__heading
         flexRowJustify(space-between)
+        align-content center
         box-sizing border-box
         padding-left 40px
         padding-right 40px
@@ -13,6 +14,18 @@
         @media(max-width 1364px)
             padding-left 20px
             padding-right 20px
+    &__caption
+        flexColumnJustify(center)
+        align-items flex-start
+        margin-right 13px
+    &__left-block
+        flexRow()
+    &__controls
+        box-sizing border-box
+        height 100%
+        align-content center
+        padding-top 10px
+        padding-bottom 10px
     &__container
         flexRow()
         flex-wrap nowrap

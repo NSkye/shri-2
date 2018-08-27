@@ -1,0 +1,34 @@
+@import '../../variables'
+
+.collapsable-tag-list
+    flexRow()
+    flex-wrap nowrap
+    @media(max-width $breakpoint)
+        flex-direction column
+        align-content flex-start
+        max-height 36px
+        z-index 3
+    &__tag
+        margin-right 10px
+        @media(max-width $breakpoint)
+            margin-right 0
+            margin-bottom 10px
+            display none
+            .collapsable-tag-list--uncollapsed &
+                display flex
+                box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
+                &:hover
+                    background $brightBackground
+            &:nth-child(1)
+                flexRowJustify(space-between)
+                align-items center
+                &::after
+                    content ''
+                    height 13px
+                    width 13px
+                    margin-left 10px
+                    background-image url(../../assets/arrow-left.svg)
+                    transform rotate(-90deg)
+                    background-repeat no-repeat
+                    background-position center
+                    background-size contain

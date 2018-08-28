@@ -27,6 +27,8 @@ body.blured .summary
         border-radius 22px
         backgroundCover()
         background-image url(../../assets/bg@1x.png)
+        @media(min-resolution 192dpi) // Retina 
+            url(../../assets/bg@2x.png)
         @media(max-width $breakpointLow)
             flex-direction column
             justify-content flex-start

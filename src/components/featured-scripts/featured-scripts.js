@@ -1,27 +1,27 @@
 const touchScroll = require('../touch-events');
+const scroll = require('../scroll-container');
 
-const pages = document.querySelectorAll('.featured-scripts__page');
 const backward = document.querySelector('.featured-scripts__backward');
 const forward = document.querySelector('.featured-scripts__forward');
+const container = document.querySelector('.featured-scripts__container');
+const area = document.querySelector('.featured-scripts');
 
+touchScroll(area, container, false, true);
+
+let position = 0;
 forward.addEventListener('click', () => {
-    const notScrolledPages = [...pages].filter(page => !~[...page.classList].indexOf('featured-scripts__page--scrolled'));
-    if (notScrolledPages.length == 1) {
-        return;
+    position+=container.clientWidth;
+    if (position > container.scrollWidth - container.clientWidth) {
+        position = container.scrollWidth - container.clientWidth;
     }
-    const page = notScrolledPages[0];
-    page.classList.add('featured-scripts__page--scrolled');
+    scroll(container, position, 200)
 });
 
 backward.addEventListener('click', () => {
-    const ScrolledPages = [...pages].filter(page => ~[...page.classList].indexOf('featured-scripts__page--scrolled'));
-    if (ScrolledPages.length == 0) {
-        return;
+    position-=container.clientWidth;
+    if (position < 0) {
+        position = 0;
     }
-    const page = ScrolledPages[ScrolledPages.length - 1];
-    page.classList.remove('featured-scripts__page--scrolled');
+    scroll(container, position, 200)
 });
 
-const container = document.querySelector('.featured-scripts__container');
-const area = document.querySelector('.featured-scripts');
-touchScroll(area, container, false, true);

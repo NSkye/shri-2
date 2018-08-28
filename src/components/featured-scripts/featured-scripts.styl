@@ -37,7 +37,6 @@ body.blured .featured-scripts
             margin 0
             justify-content flex-start
             padding-left 10px
-            //padding-right 10px
     &__page
         flexRow()
         flex-wrap wrap
@@ -60,17 +59,6 @@ body.blured .featured-scripts
             padding 0
             &:last-child
                 min-width 0
-        &--scrolled
-            min-width 0px
-            width 0px
-            opacity 0
-            transition min-width .2s ease-out, width .2s ease-out, opacity .2s ease-in
-            @media(max-width $breakpointMiddle)
-                min-width 1890px
-                opacity 1
-                width auto
-                &:last-child
-                    min-width 0
 
 
 .featured-scripts__container, .featured-scripts__heading

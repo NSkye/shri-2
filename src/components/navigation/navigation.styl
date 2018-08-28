@@ -4,7 +4,7 @@
     flexRow()
     position relative
     height 100%
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         margin-top -400px
         transition margin-top .2s
         z-index 1
@@ -14,8 +14,8 @@
         resetListStyle()
         flexRow()
         bottom 0
-        background $brightBackground
-        @media(max-width $breakpoint)
+        background-color $brightBackground
+        @media(max-width $breakpointLow)
             flex-direction column
             width 100%
             height auto
@@ -27,12 +27,8 @@
         padding-right 14px
         text-align center
         text-decoration none
-        color $inactiveText
-        font-family Arial, sans-serif
-        font-size 16px
-        line-height 20px
-        font-weight bold
-        @media(max-width $breakpoint)
+        navBold()
+        @media(max-width $breakpointLow)
             height auto
             width 100%
             padding 0

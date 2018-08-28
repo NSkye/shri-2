@@ -1,7 +1,7 @@
 @import '../../variables'
 
 body.blured .featured-devices
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         makeblur()
     
 
@@ -16,7 +16,7 @@ body.blured .featured-devices
         padding-left 40px
         padding-right 40px
         width 100%
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             padding-left 20px
             padding-right 20px
     &__caption
@@ -43,6 +43,6 @@ body.blured .featured-devices
         padding-left 30px
         padding-right 30px
         overflow hidden
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             padding-left 10px
             padding-right 10px

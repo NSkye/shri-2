@@ -5,18 +5,34 @@ $darkenBackground = #f7f7f7
 $YandexYellow = #ffd93e
 $YandexRed = #FF0000
 
-resetListStyle()
-    list-style none
-    padding 0
-    margin 0
-
 makeblur()
     filter blur(4px)
 
-$breakpoint = 768px
+$breakpointLow = 768px
+$breakpointMiddle = 1364px
+
 $headerHeightDesktop = 93px
 $headerHeightMobile = 62px
 $footerHeight = 58px
+
+$mainFont = Arial, Helvetica, sans-serif
+
+smallBold()
+    font-size 14px
+    line-height 16px
+    font-weight bold
+    color $activeText
+
+smallestThin()
+    font-size 12px
+    line-height 14px
+    color $inactiveText
+
+navBold()
+    font-size 16px
+    line-height 20px
+    font-weight bold
+    color $inactiveText
 
 flexRow()
     display flex
@@ -34,3 +50,16 @@ flexColumnJustify(j)
     flexColumn()
     justify-content j
 
+resetListStyle()
+    list-style none
+    padding 0
+    margin 0
+
+backgroundContain()
+    background-position center
+    background-repeat no-repeat
+    background-size contain
+
+backgroundCover()
+    background-repeat no-repeat
+    background-size cover

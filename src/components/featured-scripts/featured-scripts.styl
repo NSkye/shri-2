@@ -1,7 +1,7 @@
 @import '../../variables'
 
 body.blured .featured-scripts
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         makeblur()
 
 .featured-scripts
@@ -10,7 +10,7 @@ body.blured .featured-scripts
     margin-left 16px
     margin-right 30px
     width auto
-    @media(max-width 1364px)
+    @media(max-width $breakpointMiddle)
         max-width 100%
         margin-left 0
         margin-right 0
@@ -22,7 +22,7 @@ body.blured .featured-scripts
         padding-left 11px
         padding-right 16px
         margin-bottom 0
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             padding-left 20px
             padding-right 20px
             margin-bottom 20px
@@ -33,7 +33,7 @@ body.blured .featured-scripts
         overflow hidden
         height auto
         width 100vw
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             margin 0
             justify-content flex-start
             padding-left 10px
@@ -51,7 +51,7 @@ body.blured .featured-scripts
         padding-bottom 10px
         overflow hidden
         transition min-width .2s ease-in, width .2s ease-in, opacity .2s ease-out
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             flex-wrap nowrap
             min-height 0
             max-height 115px
@@ -65,7 +65,7 @@ body.blured .featured-scripts
             width 0px
             opacity 0
             transition min-width .2s ease-out, width .2s ease-out, opacity .2s ease-in
-            @media(max-width 1364px)
+            @media(max-width $breakpointMiddle)
                 min-width 1890px
                 opacity 1
                 width auto

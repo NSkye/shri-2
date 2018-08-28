@@ -4,7 +4,7 @@
     flexRow()
     flex-wrap nowrap
     align-content center
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         flex-direction column
         align-content flex-start
         max-height 36px
@@ -16,9 +16,9 @@
         min-height 36px
         transition all .2s
         &:hover
-            background $brightBackground
+            background-color $brightBackground
             box-shadow 0px 0px 6px 0px rgba(197,186,186,0.50)
-        @media(max-width $breakpoint)
+        @media(max-width $breakpointLow)
             margin-right 0
             margin-bottom 0
             display none
@@ -30,11 +30,9 @@
                     height 13px
                     width 13px
                     margin-left 10px
+                    backgroundContain()
                     background-image url(../../assets/arrow-left.svg)
                     transform rotate(-90deg)
-                    background-repeat no-repeat
-                    background-position center
-                    background-size contain
             .collapsable-tag-list--uncollapsed &
                 display flex
                 margin-bottom 10px

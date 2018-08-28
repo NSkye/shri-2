@@ -8,7 +8,6 @@
     padding-bottom 5px
     width 207px
     height 107px
-    font-family Arial, sans-serif
     &__container
         flexColumnJustify(space-between)
         box-sizing border-box
@@ -27,13 +26,7 @@
         flexColumn()
         padding 15px
     &__name
-        font-size 14px
-        line-height 16px
-        font-weight bold
-        color $activeText
+        smallBold()
     &__status
         padding-top 5px
-        font-size 12px
-        line-height 14px
-        font-weight 400
-        color $inactiveText
+        smallestThin()

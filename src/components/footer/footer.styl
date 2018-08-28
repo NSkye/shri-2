@@ -9,14 +9,11 @@
     width 100%
     padding-left 40px
     padding-right 40px
-    color $inactiveText
-    font-family Arial, sans-serif
-    font-size 12px
-    line-height 1.3em
-    @media(max-width 1364px)
+    smallestThin()
+    @media(max-width $breakpointMiddle)
         margin-top 30px
         margin-bottom 30px
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         flex-direction column
         justify-content center
     @media(max-width 330px)
@@ -24,7 +21,7 @@
     &__links
         flexRow()
         height 100%
-        @media(max-width $breakpoint)
+        @media(max-width $breakpointLow)
             height auto
             padding-bottom .3em
     &__link
@@ -34,7 +31,7 @@
         text-decoration none
         text-align center
         color inherit
-        @media(max-width $breakpoint)
+        @media(max-width $breakpointLow)
             height auto
             &:first-child
                 padding-left 1em

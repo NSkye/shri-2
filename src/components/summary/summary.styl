@@ -1,20 +1,20 @@
 @import '../../variables'
 
 body.blured .summary
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         makeblur()
 
 .summary
     padding-left 40px
-    @media(max-width 1364px)
+    @media(max-width $breakpointMiddle)
         padding-left 0
-    @media(max-width $breakpoint)
+    @media(max-width $breakpointLow)
         padding-left 20px
         padding-right 20px
         box-sizing border-box
         width 100%
     &__heading
-        @media(max-width 1364px)
+        @media(max-width $breakpointMiddle)
             display none
     &__container
         flexRowJustify(space-between)
@@ -25,10 +25,9 @@ body.blured .summary
         max-width 40vw
         overflow hidden
         border-radius 22px
-        background url(../../assets/bg@1x.png)
-        background-repeat no-repeat
-        background-size cover
-        @media(max-width $breakpoint)
+        backgroundCover()
+        background-image url(../../assets/bg@1x.png)
+        @media(max-width $breakpointLow)
             flex-direction column
             justify-content flex-start
             height auto
@@ -42,12 +41,10 @@ body.blured .summary
             right 110px
             height 16px
             width 16px
+            backgroundContain()
             background-image url(assets/double-arrow.svg)
-            background-repeat no-repeat
-            background-size contain
-            background-position center
             z-index 4
-            @media(max-width $breakpoint)
+            @media(max-width $breakpointLow)
                 display none
     &__core
         flexColumn()
@@ -55,7 +52,6 @@ body.blured .summary
         width 360px
         margin-top 2.5rem
         margin-left 2.5rem
-        font-family Arial, sans-serif
         font-color $activeText
     &__greeting
         width 100%
@@ -91,10 +87,8 @@ body.blured .summary
         height 4.3rem
         width 2.6rem
         &--rain
-            background url(../../assets/cloud-drizzle.svg)
-            background-repeat no-repeat
-            background-size contain
-            background-position center
+            backgroundContain()
+            background-image url(../../assets/cloud-drizzle.svg)
             margin-left .5rem
     &__devices
         flexColumn()
@@ -106,7 +100,7 @@ body.blured .summary
         position relative
         &--grabbed
             cursor grabbing
-        @media(max-width $breakpoint)
+        @media(max-width $breakpointLow)
             flex-direction row
             padding-left 10px
             height 140px

@@ -2,11 +2,17 @@
 
 html, body
     height 100vh
-body
+
+.body
     display flex
     flex-direction column
     user-select none
     font-family $mainFont
+    &--overflow-hidden-all
+        overflow hidden
+    &--overflow-hidden-mobile
+        @media(max-width $breakpointLow)
+            overflow hidden
 
 html // 1rem - 10px
     font-size .73vw

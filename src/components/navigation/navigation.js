@@ -20,14 +20,14 @@ globalAPI.add('navigation', {
         if (!isOpen) {
             nav.classList.add('navigation--open');
             body.classList.add('nav-open');
-            body.classList.add('blured');
-            body.style.overflow = 'hidden';
+            body.classList.add('body--blured-nav');
+            body.classList.add('body--overflow-hidden-mobile');
             blockerBlock.open();
         } else {
             nav.classList.remove('navigation--open');
             body.classList.remove('nav-open');
-            body.classList.remove('blured');
-            body.style.overflow = 'visible';
+            body.classList.remove('body--blured-nav');
+            body.classList.remove('body--overflow-hidden-mobile');
             blockerBlock.close();
         }
 

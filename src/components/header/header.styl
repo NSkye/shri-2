@@ -1,11 +1,5 @@
 @import '../../variables'
 
-body.blured .header
-    makeblur()
-
-body.blured.nav-open .header
-    filter none
-
 .header
     flexRow()
     position fixed
@@ -14,6 +8,8 @@ body.blured.nav-open .header
     background-color $brightBackground
     border-bottom 1px solid #F0F0F0
     z-index 5
+    .body--blured-popup &
+        blurForPopup()
     &__mobileview
         flexRowJustify(space-between)
         align-items center

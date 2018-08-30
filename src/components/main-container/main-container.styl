@@ -8,6 +8,10 @@
     width 100%
     padding-top $headerHeightDesktop+10px
     overflow hidden
+    .body--blured-nav &
+        blurForNavigation()
+    .body--blured-popup &
+        blurForPopup()
     @media(max-width $breakpointLow)
         padding-top $headerHeightMobile
         padding-bottom $footerHeight

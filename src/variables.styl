@@ -5,8 +5,15 @@ $darkenBackground = #f7f7f7
 $YandexYellow = #ffd93e
 $YandexRed = #FF0000
 
-makeblur()
-    filter blur(4px)
+makeBlur()
+    filter blur(2px)
+
+blurForNavigation()
+    @media(max-width $breakpointLow)
+        makeBlur()
+
+blurForPopup()
+    makeBlur()
 
 $breakpointLow = 768px
 $breakpointMiddle = 1364px

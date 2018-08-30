@@ -1,6 +1,7 @@
 const globalAPI = require('../global_API');
 
 const navigationLinks = document.querySelectorAll('.navigation__link');
+const blockerBlock = require('../blocker-block');
 
 [...navigationLinks].map(a => {
     const elhref = a.getAttribute('href');
@@ -9,12 +10,27 @@ const navigationLinks = document.querySelectorAll('.navigation__link');
     }
 });
 
+isOpen = false;
+
 globalAPI.add('navigation', {
     toggle() {
         const nav = document.querySelector('.navigation');
         const body = document.querySelector('body');
-        nav.classList.toggle('navigation--open');
-        body.classList.toggle('nav-open');
-        body.classList.toggle('blured');
+
+        if (!isOpen) {
+            nav.classList.add('navigation--open');
+            body.classList.add('nav-open');
+            body.classList.add('blured');
+            body.style.overflow = 'hidden';
+            blockerBlock.open();
+        } else {
+            nav.classList.remove('navigation--open');
+            body.classList.remove('nav-open');
+            body.classList.remove('blured');
+            body.style.overflow = 'visible';
+            blockerBlock.close();
+        }
+
+        isOpen = !isOpen;
     }
 })

@@ -1,11 +1,46 @@
 @import '../../variables'
 
 .pop-up
-    positon absolute
-    flexColumn();
+    position absolute
+    flexColumnJustify(space-between);
     transition all .2s
+    /*&--open
+        min-width 630px
+        min-height 318px
+        @media(max-width $breakpointMiddle)
+            min-width 334px
+            min-height 642px*/
     &__contents
-        height 100%
+        height 75%
         width 100%
-        border-radius 23px
+        border-radius 20px
         background-color $brightBackground
+    &__buttons
+        flexRowJustify(space-between);
+        width 100%
+        height 17%
+        opacity 0
+        transition all .2s
+        .pop-up--open &
+            opacity 1
+        @media(max-width $breakpointMiddle)
+            flex-direction column
+            height 22%
+    &__accept, &__close
+        flexColumnJustify(center)
+        text-align center
+        font-size 21px
+        font-weight bold
+        height 100%
+        width 48%
+        border-radius 20px
+        &:hover
+            cursor pointer
+        @media(max-width $breakpointMiddle)
+            width 100%
+            height 43%
+            font-size 18px
+    &__accept
+        background $YandexYellow
+    &__close
+        background $brightBackground

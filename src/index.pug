@@ -6,6 +6,10 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Яндекс Дом
     body
+        include components/pop-up-container/pop-up-container
+        +pop-up-container
+            include components/pop-up/pop-up
+            +pop-up
         include components/header/header
         +header(data.navigation)
         include components/main-container/main-container

@@ -8,3 +8,6 @@ require('./components/summary');
 require('./components/featured-scripts');
 require('./components/featured-devices');
 require('./components/footer');
+
+require('./components/pop-up-container');
+require('./components/pop-up');

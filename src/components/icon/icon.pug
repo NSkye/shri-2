@@ -1,4 +1,7 @@
-mixin icon(type, active)
-    - var status = active ? 'on' : 'off'
-    - var iClass = 'icon' + '--' + type + '-' + status
-    div.icon(class=iClass)
+mixin icon(type, active, additionalClass)
+    if (active === null || type === null)
+        div.icon(class=additionalClass)
+    else
+        - var status = active ? 'on' : 'off'
+        - var iClass = 'icon' + '--' + type + '-' + status + (additionalClass ? ' ' + additionalClass : '')
+        div.icon(class=iClass)

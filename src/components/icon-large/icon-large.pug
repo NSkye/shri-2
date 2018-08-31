@@ -1,0 +1,4 @@
+mixin icon-large(type, active, additionalClass)
+    include ../icon/icon
+    - var iClass = 'icon-large' + (additionalClass ? ' ' + additionalClass + '__icon' : '')
+    +icon(type, active, iClass)

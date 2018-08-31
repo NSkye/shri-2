@@ -1,6 +1,8 @@
 mixin pop-up
     div.pop-up
         div.pop-up__contents
+            include ../pop-up-light/pop-up-light
+            +pop-up-light
         div.pop-up__buttons
             div.pop-up__accept
                 span= 'Применить'

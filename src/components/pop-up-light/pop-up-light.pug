@@ -1,0 +1,14 @@
+mixin pop-up-light
+    div.pop-up-light
+        include ../icon-large/icon-large
+        +icon-large(null, null, 'pop-up-light')
+        div.pop-up-light__heading
+        div.pop-up-light__status
+        div.pop-up-light__controls
+            div.pop-up-light__taglist
+                include ../tag/tag
+                each tg, index in ['Вручную', 'Дневной свет', 'Вечерний свет', 'Рассвет']
+                    if (index === 0)
+                        +tag(tg, 'pop-up-light', true)
+                    else
+                        +tag(tg, 'pop-up-light', false)

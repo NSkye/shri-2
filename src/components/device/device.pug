@@ -1,8 +1,8 @@
 mixin device(device)
     div.device
         div.device__container(popupType= device.control)
-            include ../icon/icon
-            +icon(device.icon, device.active)
+            include ../icon-small/icon-small
+            +icon-small(device.icon, device.active, 'device')
             div.device__info
                 div.device__name= device.name
                 - if (device.status && device.status !== '')

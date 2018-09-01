@@ -6,7 +6,7 @@ const devices = document.querySelectorAll('.device__container');
 function getDeviceInfo(container) {
     const infoBlock = [...container.children].find(child => ~[...child.classList].indexOf('device__info'));
     let iconClass = [...[...container.children].find(child => ~[...child.classList].indexOf('icon')).classList].find(cl =>
-        /^icon--(sun|thermometer|clock)-(on|off)$/.test(cl)
+        /icon--(sun|thermometer|clock)-(on|off)/.test(cl)
     );
     if (!infoBlock) return {};
     const nameBlock = [...infoBlock.children].find(child => ~[...child.classList].indexOf('device__name')) || null;

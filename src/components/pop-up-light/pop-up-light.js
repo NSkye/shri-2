@@ -1,5 +1,7 @@
 'use strict';
 
+const slider = require('../slider');
+
 const touchScroll = require('../touch-events');
 const wheelScroll = require('../wheel-scroll');
 const cursorScroll = require('../cursor-scroll');
@@ -14,6 +16,8 @@ touchScroll(tagList, tagList, true)
 wheelScroll(tagList);
 cursorScroll(tagList, 'pop-up-light__taglist--grabbed');
 
+let sliderInstance;
+
 function setHeading(h) {
     heading.innerText = h;
 }
@@ -24,10 +28,12 @@ function setStatus(s) {
 
 function reveal() {
     popupLight.classList.add('pop-up-light--reveal');
+    sliderInstance = slider.initSlider(document.querySelector('.pop-up-light__slider'), 50);
 }
 
 function hide() {
     popupLight.classList.remove('pop-up-light--reveal');
+    sliderInstance.destroy();
 }
 
 let ic;

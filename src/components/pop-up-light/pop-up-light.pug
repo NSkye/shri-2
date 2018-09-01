@@ -12,3 +12,6 @@ mixin pop-up-light
                         +tag(tg, 'pop-up-light', true)
                     else
                         +tag(tg, 'pop-up-light', false)
+            div.pop-up-light__main-control-wrapper
+                include ../slider/slider
+                +slider('pop-up-light')

@@ -57,7 +57,6 @@ function open(container) {
     adapt(x);
     popupContainer.darkenAfter(0);
 
-    //window.matchMedia('(max-width: 1364px)').addListener(adapt);
     window.addEventListener('resize', adapt);
 
     global_API.add('CURRENT_POPUP', container);

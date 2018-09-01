@@ -5,9 +5,13 @@
     opacity 0
     transition all .05s
     position relative
+    height 100%
     &--reveal
         transition all .2s
         opacity 1
+    &__controls
+        flexColumn()
+        flex-grow 1
     &__heading
         box-sizing border-box
         font-size 27px
@@ -44,12 +48,31 @@
         top 25px
         @media(max-width $breakpointLow)
             display none
+    &__main-control-wrapper
+        flexColumnJustify(center)
+        align-items center
+        flex-grow 1
     &__slider
-        margin 25px
-        border-radius 30px
-        height 60px
-        background-image linear-gradient(-85deg, #FFE682 2%, #FF9E00 98%)
-        @media(max-width $breakpointMiddle)
-            height auto
-            width 60px
-            align-self center
+        flexRowJustify(space-between)
+        align-items center
+        background-image linear-gradient(to right, #FFE682, #FF9E00)
+        @media(max-width $breakpointLow)
+            flex-direction column-reverse
+            background-image linear-gradient(to top, #FFE88C, #FFB100)
+        &::before, &::after
+            content ''
+            height 30px
+            width 30px
+            backgroundContain()
+        &::before
+            margin-left 15px
+            background-image url(assets/icon_sun_min.svg)
+            @media(max-width $breakpointLow)
+                margin-left 0
+                margin-bottom 15px
+        &::after
+            margin-right 15px
+            background-image url(assets/icon_sun_max.svg)
+            @media(max-width $breakpointLow)
+                margin-right 0
+                margin-top 15px

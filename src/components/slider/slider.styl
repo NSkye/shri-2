@@ -1,0 +1,29 @@
+@import '../../variables'
+
+.slider
+    flexRowJustify(space-between)
+    box-sizing border-box
+    position relative
+    width 77%
+    height 60px
+    //background-color grey
+    border-radius 30px
+    overflow hidden
+    @media(max-width $breakpointLow)
+        margin-top 25px
+        margin-bottom 25px
+        height 49vh
+        width 60px
+    &__sliding-thing
+        position absolute
+        height 60px
+        width 60px
+        box-shadow 0px 0px 0px 4px $brightBackground, inset 0px 0px 0px 4px #EFB955
+        border-radius 50%
+    &__blocker
+        position absolute
+        top 0
+        left 0
+        height 100%
+        width 100%
+        cursor pointer

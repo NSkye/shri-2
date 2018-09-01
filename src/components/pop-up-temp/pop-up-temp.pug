@@ -1,0 +1,5 @@
+mixin pop-up-temp
+    include ../pop-up-general/pop-up-general
+    +pop-up-general('pop-up-temp', ['Вручную', 'Холодно', 'Тепло', 'Жарко'])
+        include ../slider/slider
+        +slider('pop-up-temp')

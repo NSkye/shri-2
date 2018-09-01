@@ -1,6 +1,6 @@
 @import '../../variables'
 
-.pop-up-light
+.pop-up-temp
     &__icon
         position absolute
         right 25px
@@ -22,24 +22,25 @@
     &__slider
         flexRowJustify(space-between)
         align-items center
-        background-image linear-gradient(to right, #FFE682, #FF9E00)
+        background-image linear-gradient(to right, #068FFF, #FFD800, #F76B1C)
         @media(max-width $breakpointLow)
             flex-direction column-reverse
-            background-image linear-gradient(to top, #FFE88C, #FFB100)
+            background-image linear-gradient(to top, #068FFF, #FFD800, #F76B1C)
         &::before, &::after
-            content ''
-            height 30px
+            height 21px
             width 30px
-            backgroundContain()
+            color $brightBackground
+            font-weight bold
+            font-size 18px
         &::before
+            content '-10'
             margin-left 15px
-            background-image url(assets/icon_sun_min.svg)
             @media(max-width $breakpointLow)
                 margin-left 0
                 margin-bottom 15px
         &::after
+            content '+30'
             margin-right 15px
-            background-image url(assets/icon_sun_max.svg)
             @media(max-width $breakpointLow)
                 margin-right 0
                 margin-top 15px

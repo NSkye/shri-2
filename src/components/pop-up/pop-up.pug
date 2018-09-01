@@ -2,7 +2,9 @@ mixin pop-up
     div.pop-up
         div.pop-up__contents
             include ../pop-up-light/pop-up-light
+            include ../pop-up-temp/pop-up-temp
             +pop-up-light
+            +pop-up-temp
         div.pop-up__buttons
             div.pop-up__accept
                 span= 'Применить'

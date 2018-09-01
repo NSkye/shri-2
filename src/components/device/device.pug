@@ -1,6 +1,6 @@
 mixin device(device)
     div.device
-        div.device__container(popupType= device.control)
+        div.device__container(popupType= device.control, deviceid=device.deviceID)
             include ../icon-small/icon-small
             +icon-small(device.icon, device.active, 'device')
             div.device__info

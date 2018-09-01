@@ -29,49 +29,56 @@
             "icon": "sun",
             "status": "Включено",
             "active": true,
-            "control": "LIGHT"
+            "control": "LIGHT",
+            "deviceID": 1
         },
         {
             "name": "D-Link Omna 180 Cam",
             "icon": "sun",
             "status": "Включится в 17:00",
             "active": false,
-            "control": "LIGHT"
+            "control": "LIGHT",
+            "deviceID": 2
         },
         {
             "name": "Elgato Eve Degree Connected",
             "icon": "thermometer",
             "status": "Выключено до 17:00",
             "active": false,
-            "control": "TEMP"
+            "control": "TEMP",
+            "deviceID": 3
         },
         {
             "name": "LIFX Mini Day & Dusk A60 E27",
             "icon": "sun",
             "status": "Включится в 17:00",
             "active": false,
-            "control": "LIGHT"
+            "control": "LIGHT",
+            "deviceID": 4
         },
         {
             "name": "Xiaomi Mi Air Purifier 2S",
             "icon": "sun",
             "status": "Включено",
             "active": true,
-            "control": "LIGHT"
+            "control": "LIGHT",
+            "deviceID": 5
         },
         {
             "name": "Philips Zhirui",
             "icon": "sun",
             "status": "Выключено",
             "active": false,
-            "control": "LIGHT"
+            "control": "LIGHT",
+            "deviceID": 6
         },
         {
             "name": "Xiaomi Warm Floor",
             "icon": "thermometer",
             "status": "",
             "active": true,
-            "control": "TEMP_DIAL"
+            "control": "TEMP_DIAL",
+            "deviceID": 7
         }
     ],
     "scripts": [

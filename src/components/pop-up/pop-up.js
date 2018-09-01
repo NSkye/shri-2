@@ -13,20 +13,9 @@ const body = document.querySelector('.body');
 const buttons = [ document.querySelector('.pop-up__accept'), document.querySelector('.pop-up__close') ];
 
 function getContainerInfo(container) {
-    const infoBlock = [...container.children].find(child => ~[...child.classList].indexOf('device__info'));
-    let iconClass = [...[...container.children].find(child => ~[...child.classList].indexOf('icon')).classList].find(cl =>
-        /^icon--(sun|thermometer|clock)-(on|off)$/.test(cl)
-    );
-    if (!infoBlock) return {};
-    const nameBlock = [...infoBlock.children].find(child => ~[...child.classList].indexOf('device__name')) || null;
-    const statusBlock = [...infoBlock.children].find(child => ~[...child.classList].indexOf('device__status')) || null;
-
-    return {
-        name: nameBlock ? nameBlock.childNodes[0].data : '',
-        status: statusBlock ? statusBlock.childNodes[0].data : '',
-        popupType: container.attributes.popuptype.nodeValue,
-        iconClass
-    }
+    const devices = global_API.get('devices');
+    const deviceInfo = devices[container.attributes.deviceid.nodeValue];
+    return deviceInfo;
 }
 
 let specificPopup;

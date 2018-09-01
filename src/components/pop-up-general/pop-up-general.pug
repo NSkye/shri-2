@@ -1,0 +1,17 @@
+mixin pop-up-general(additionalClass, tgs)
+    div.pop-up-general(class= additionalClass)
+        include ../icon-large/icon-large
+        +icon-large(null, null, additionalClass)
+        div.pop-up-general__heading(class= additionalClass + '__heading')
+        div.pop-up-general__status(class= additionalClass + '__status')
+        div.pop-up-general__controls(class= additionalClass + '__controls')
+            div.pop-up-general__taglist(class= additionalClass + '__taglist')
+                if tgs
+                    include ../tag/tag
+                    each tg, index in tgs
+                        if (index === 0)
+                            +tag(tg, additionalClass, true)
+                        else
+                            +tag(tg, additionalClass, false)
+            div.pop-up-general__main-control-wrapper(class= additionalClass + '__main-control-wrapper')
+                block

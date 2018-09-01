@@ -1,0 +1,37 @@
+@import '../../variables'
+
+.pop-up-general
+    flexColumn()
+    opacity 0
+    transition all .05s
+    position relative
+    height 100%
+    &__controls
+        flexColumn()
+        flex-grow 1
+    &__heading
+        box-sizing border-box
+        font-size 27px
+        font-weight bold
+        margin 25px
+        margin-right 90px
+        margin-bottom 6px
+        @media(max-width $breakpointLow)
+            font-size 18px
+    &__status
+        padding-left 25px
+        font-size 14px
+        color $inactiveText
+        @media(max-width $breakpointLow)
+            font-size 12px
+    &__taglist
+        flexRow()
+        align-items center
+        padding-left 25px
+        height 31px
+        margin-top 20px
+        overflow hidden
+    &__main-control-wrapper
+        flexColumnJustify(center)
+        align-items center
+        flex-grow 1

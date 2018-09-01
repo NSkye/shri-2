@@ -1,0 +1,1 @@
+require('./pop-up-general.styl');

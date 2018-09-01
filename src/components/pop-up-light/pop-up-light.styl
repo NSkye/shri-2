@@ -1,32 +1,15 @@
 @import '../../variables'
 
 .pop-up-light
-    flexColumn()
-    opacity 0
-    transition all .05s
-    position relative
-    height 100%
+    &__icon
+        position absolute
+        right 25px
+        top 25px
+        @media(max-width $breakpointLow)
+            display none
     &--reveal
         transition all .2s
         opacity 1
-    &__controls
-        flexColumn()
-        flex-grow 1
-    &__heading
-        box-sizing border-box
-        font-size 27px
-        font-weight bold
-        margin 25px
-        margin-right 90px
-        margin-bottom 6px
-        @media(max-width $breakpointLow)
-            font-size 18px
-    &__status
-        padding-left 25px
-        font-size 14px
-        color $inactiveText
-        @media(max-width $breakpointLow)
-            font-size 12px
     &__tag
         font-weight bold
         margin-right 10px
@@ -35,23 +18,6 @@
             margin-right 0
         @media(max-width $breakpointLow)
             font-weight normal
-    &__taglist
-        flexRow()
-        align-items center
-        padding-left 25px
-        height 31px
-        margin-top 20px
-        overflow hidden
-    &__icon
-        position absolute
-        right 25px
-        top 25px
-        @media(max-width $breakpointLow)
-            display none
-    &__main-control-wrapper
-        flexColumnJustify(center)
-        align-items center
-        flex-grow 1
     &__slider
         flexRowJustify(space-between)
         align-items center

@@ -86,151 +86,176 @@
             "name": "Выключить весь свет в доме и во дворе",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 4
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         },
         {
             "name": "Я ухожу",
             "icon": "clock",
             "status": "",
-            "active": false
+            "active": false,
+            "deviceID": 4
         },
         {
             "name": "Включить свет в коридоре",
             "icon": "sun",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 1
         },
         {
             "name": "Набрать горячую ванну",
             "icon": "thermometer",
             "status": "Начнётся в 18:00",
-            "active": true
+            "active": true,
+            "deviceID": 3
         },
         {
             "name": "Сделать пол тёплым во всей квартире",
             "icon": "thermometer",
             "status": "",
-            "active": true
+            "active": true,
+            "deviceID": 7
         }
     ],
     "footer": {

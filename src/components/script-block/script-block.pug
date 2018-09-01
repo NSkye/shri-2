@@ -1,6 +1,6 @@
 mixin script-block(script)
     div.script
-        div.script__container
+        div.script__container(deviceid= script.deviceID)
             include ../icon-small/icon-small
             +icon-small(script.icon, script.active, 'script')
             div.script__info

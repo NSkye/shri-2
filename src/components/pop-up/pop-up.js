@@ -107,7 +107,6 @@ function close() {
     setTimeout(popupContainer.close, 200);
 }
 
-//popupContainerElement.addEventListener('click', close);
 [...buttons].map(b => b.addEventListener('click', close));
 
 module.exports = {

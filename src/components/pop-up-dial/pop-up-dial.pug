@@ -1,0 +1,6 @@
+mixin pop-up-dial(temp)
+    include ../pop-up-general/pop-up-general
+    include ../dial/dial
+    - var tempStr = temp > 0 ? '+' + temp.toString() : temp < 0 ? '-' + temp.toString() : temp.toString()
+    +pop-up-general('pop-up-dial', null, tempStr)
+        +dial('pop-up-dial')

@@ -3,8 +3,10 @@ mixin pop-up(main)
         div.pop-up__contents
             include ../pop-up-light/pop-up-light
             include ../pop-up-temp/pop-up-temp
+            include ../pop-up-dial/pop-up-dial
             +pop-up-light
             +pop-up-temp(main.weather.temperature.inside)
+            +pop-up-dial(main.weather.temperature.inside)
         div.pop-up__buttons
             div.pop-up__accept
                 span= 'Применить'

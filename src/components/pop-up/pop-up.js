@@ -4,7 +4,7 @@ const popupContainer = require('../pop-up-container');
 const global_API = require('../global_API');
 const popupTypes = {
     'LIGHT': require('../pop-up-light'),
-    'TEMP_DIAL': require('../pop-up-light'),
+    'TEMP_DIAL': require('../pop-up-dial'),
     'TEMP': require('../pop-up-temp')
 }
 

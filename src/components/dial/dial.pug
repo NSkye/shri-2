@@ -1,0 +1,8 @@
+mixin dial(additionalClass)
+    div.dial(class= additionalClass + '__dial')
+        - for (var i = 0; i < 115; ++i) {
+            div.dial__part
+        - }
+        div.dial__cover= '+23'
+        div.dial__arrow
+            div.dial__arrow-tip

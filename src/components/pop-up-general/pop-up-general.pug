@@ -8,8 +8,8 @@ mixin pop-up-general(additionalClass, tgs, aside)
         div.pop-up-general__heading(class= additionalClass + '__heading')
         div.pop-up-general__status(class= additionalClass + '__status')
         div.pop-up-general__controls(class= additionalClass + '__controls')
-            div.pop-up-general__taglist(class= additionalClass + '__taglist')
-                if tgs
+            if tgs
+                div.pop-up-general__taglist(class= additionalClass + '__taglist')
                     include ../tag/tag
                     each tg, index in tgs
                         if (index === 0)

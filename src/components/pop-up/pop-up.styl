@@ -2,7 +2,7 @@
 
 .pop-up
     position absolute
-    flexColumnJustify(space-between);
+    flexColumn();
     transition all .2s
     &__contents
         height 75%
@@ -20,7 +20,7 @@
             opacity 1
         @media(max-width $breakpointLow)
             flex-direction column
-            padding-top 3%
+            padding-top 15px
             justify-content flex-start
             height 22%
     &__accept, &__close
@@ -40,6 +40,6 @@
     &__accept
         background $YandexYellow
         @media(max-width $breakpointLow)
-            margin-bottom 5%
+            margin-bottom 15px
     &__close
         background $brightBackground

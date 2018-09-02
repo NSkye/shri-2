@@ -75,7 +75,7 @@
         {
             "name": "Xiaomi Warm Floor",
             "icon": "thermometer",
-            "status": "",
+            "status": "Включено",
             "active": true,
             "control": "TEMP_DIAL",
             "deviceID": 7

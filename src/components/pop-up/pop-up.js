@@ -20,13 +20,11 @@ function getContainerInfo(container) {
 
 let specificPopup;
 function open(container) {
-    setTimeout(() => {
-        const { name, status, popupType, iconClass } = getContainerInfo(container);
-        specificPopup = popupTypes[popupType];
-        specificPopup.setHeading(name);
-        specificPopup.setStatus(status);
-        specificPopup.setIcon(iconClass);
-    }, 200);
+    const { name, status, popupType, iconClass } = getContainerInfo(container);
+    specificPopup = popupTypes[popupType];
+    specificPopup.setHeading(name);
+    specificPopup.setStatus(status);
+    specificPopup.setIcon(iconClass);
 
     const viewportOffset = container.getBoundingClientRect();
     const [
@@ -41,7 +39,11 @@ function open(container) {
         viewportOffset.top
     ]
 
-    const adapt = sizes(630, 320, 94, 90);
+    //Потом можно будет что-то поэлегантнее придумать
+    let desktopWidth = 630;
+    let desktopHeight = popupType == 'TEMP_DIAL' ? 450 : 320;
+
+    const adapt = sizes(desktopWidth, desktopHeight, 90, 94);
     const x = window.matchMedia('(max-width: 768px)');
 
     popup.style.height = initialHeight/body.clientHeight*100 + 'vh';

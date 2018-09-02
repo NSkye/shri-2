@@ -7,6 +7,19 @@
     position relative
     height 100%
     display none
+    &__aside
+        position absolute
+        flexRow()
+        right 25px
+        top 25px
+        @media(max-width $breakpointLow)
+            display none
+    &__aside-info
+        max-height 43px
+        max-width 62px
+        font-size 36px
+        font-weight bold
+        padding-right 5px
     &__controls
         flexColumn()
         flex-grow 1

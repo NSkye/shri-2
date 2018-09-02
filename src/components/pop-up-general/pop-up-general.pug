@@ -1,7 +1,10 @@
-mixin pop-up-general(additionalClass, tgs)
+mixin pop-up-general(additionalClass, tgs, aside)
     div.pop-up-general(class= additionalClass)
-        include ../icon-large/icon-large
-        +icon-large(null, null, additionalClass)
+        div.pop-up-general__aside(class= additionalClass + '__aside')
+            if aside
+                span.pop-up-general__aside-info(class= additionalClass + '__aside-info')= aside
+            include ../icon-large/icon-large
+            +icon-large(null, null, additionalClass)
         div.pop-up-general__heading(class= additionalClass + '__heading')
         div.pop-up-general__status(class= additionalClass + '__status')
         div.pop-up-general__controls(class= additionalClass + '__controls')

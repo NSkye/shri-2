@@ -1,5 +1,6 @@
-mixin pop-up-temp
+mixin pop-up-temp(temp)
     include ../pop-up-general/pop-up-general
-    +pop-up-general('pop-up-temp', ['Вручную', 'Холодно', 'Тепло', 'Жарко'])
+    - var tempStr = temp > 0 ? '+' + temp.toString() : temp < 0 ? '-' + temp.toString() : temp.toString()
+    +pop-up-general('pop-up-temp', ['Вручную', 'Холодно', 'Тепло', 'Жарко'], tempStr)
         include ../slider/slider
         +slider('pop-up-temp')

@@ -1,6 +1,6 @@
 'use strict';
 
-const slider = require('../slider');
+const Slider = require('../slider');
 
 const touchScroll = require('../touch-events');
 const wheelScroll = require('../wheel-scroll');
@@ -28,12 +28,11 @@ function setStatus(s) {
 
 function reveal() {
     popupTemp.classList.add('pop-up-temp--reveal');
-    sliderInstance = slider.initSlider(document.querySelector('.pop-up-temp__slider'), 50);
+    sliderInstance = new Slider(document.querySelector('.pop-up-temp__slider'), 50);
 }
 
 function hide() {
     popupTemp.classList.remove('pop-up-temp--reveal');
-    sliderInstance.destroy();
 }
 
 let ic;

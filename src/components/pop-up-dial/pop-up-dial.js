@@ -1,10 +1,13 @@
 'use strict';
 
+const Dial = require('../dial');
+
 const heading = document.querySelector('.pop-up-dial__heading');
 const status = document.querySelector('.pop-up-dial__status');
 const popupDial = document.querySelector('.pop-up-dial');
 const popupDialIcon = document.querySelector('.pop-up-dial__icon');
 
+let dial;
 function setHeading(h) {
     heading.innerText = h;
 }
@@ -15,6 +18,7 @@ function setStatus(s) {
 
 function reveal() {
     popupDial.classList.add('pop-up-dial--reveal');
+    dial = new Dial(document.querySelector('.dial'), 23);
 }
 
 function hide() {

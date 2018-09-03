@@ -1,178 +1,146 @@
 const body = document.querySelector('.body');
 
-function layer(slider, e) {
-    let el = slider;
-    x = 0;
-    y = 0;
+class Slider {
+    constructor(slider, initialValue) {
+        this.slider = slider;
+        this.slidingThing = [...slider.children]
+        .find(child => 
+            [...child.classList]
+            .find(cl => cl == 'slider__sliding-thing')
+        );
 
-    while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
-        x += el.offsetLeft - el.scrollLeft;
-        y += el.offsetTop - el.scrollTop;
-        el = el.offsetParent;
-    }
-
-    if (!e.clientX || !e.clientY) {
-        e = e.touches[0];
-    }
-
-    X = e.clientX - x;
-    Y = e.clientY - y;
-    return { X, Y }
-}
-
-/**
- * Посчитать оффсет в процентах от начала слайдера в зависимости от положения курсора
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Number} raw положение курсора по вертикали, либо по горизонтали, в зависимости от режима
- * @param {String} mode режим в котором находится слайдер (вертикальный или горизонтальный) (X/Y)
- * @returns {Number}
- */
-function calculateOffset(slider, raw, mode) {
-    const originalLength = mode == 'X' ? slider.clientWidth : slider.clientHeight;
-    let adj = raw - 30;
-    adj = adj > originalLength - 60 ? originalLength - 60 : adj < 0 ? 0 : adj;
-
-    return adj/originalLength * 100;
-}
-
-/**
- * Перевести проценты заполненности слайдера (0-100%) в проценты оффсета указателя слайдера
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Number} percentage Значение, которое мы хотим установить на слайдере (0-100%)
- * @param {String} mode режим в котором находится слайдер (вертикальный или горизонтальный) (X/Y)
- * @returns {Number}
- */
-function offsetFromPercentage(slider, percentage, mode) {
-    const originalLength = mode == 'X' ? slider.clientWidth : slider.clientHeight;
-    const maxPosition = originalLength - 60;
-    const offset = ((maxPosition/100*percentage)/originalLength)*100;
-    return offset;
-}
-
-/**
- * Перевести проценты оффсета указателя слайдера в проценты его заполненности (выставленное значение)
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Number} offset оффсет указателя слайдера
- * @param {String} mode режим в котором находится слайдер (вертикальный или горизонтальный) (X/Y)
- */
-function percentageFromOffset(slider, offset, mode) {
-    const originalLength = mode == 'X' ? slider.clientWidth : slider.clientHeight;
-    const maxPosition = originalLength - 60;
-    const pxOffset = (originalLength/100)*offset;
-    const percentage = (pxOffset/maxPosition)*100
-    return percentage;
-}
-
-/**
- * Создает функцию для установки значения слайдеру
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Object} slidingThing объект указателя слайдера
- * @param {Object} state состояние слайдера
- * @returns {Function}
- */
-function sv(slider, slidingThing, state) {
-    return function setValue(value) {
-        let property;
-        let mode;
-        if (body.clientWidth <= 768) { 
-            property = 'top'; 
-            mode = 'Y';
-        } else { 
-            property = 'left';
-            mode = 'X';
+        const mode = body.clientWidth <= 768 ? 'Y' : 'X';
+        this.state = {
+            value: initialValue,
+            mode: mode,
+            offset: this.offsetFromPercentage(initialValue, mode)
         }
-        state.offset = offsetFromPercentage(slider, value, mode);
+
+        this.slidingThing.style[this.state.mode == 'X' ? 'left' : 'bottom'] = this.state.offset.toFixed(2) + '%';
+        this.slidingThing.style[this.state.mode == 'Y' ? 'left' : 'bottom'] = 'auto';
+
+        this.isDown = false;
+        this.position = 0;
+
+        slider.addEventListener('mousedown', this.sliderMousedown.bind(this));
+        slider.addEventListener('touchstart', this.sliderMousedown.bind(this));
+        slider.addEventListener('mousemove', this.sliderMousemove.bind(this));
+        slider.addEventListener('touchmove', this.sliderMousemove.bind(this));
+        slider.addEventListener('mouseup', this.sliderMouseup.bind(this));
+        window.addEventListener('resize', this.resize.bind(this));
+        body.addEventListener('mouseup', this.sliderMouseup.bind(this));
+    }
+
+    /**
+     * Посчитать оффсет в процентах от начала слайдера в зависимости от положения курсора
+     * @param {Number} raw положение курсора по вертикали, либо по горизонтали, в зависимости от режима
+     * @returns {Number}
+     */
+    calculateOffset(raw) {
+        const originalLength = this.state.mode == 'X' ? this.slider.clientWidth : this.slider.clientHeight;
+        let adj;
+        adj = raw - 30;
+        adj = adj > originalLength - 60 ? originalLength - 60 : adj < 0 ? 0 : adj;
+
+        return this.state.mode == 'X' ? adj/originalLength * 100 : 100 - ((adj+60)/originalLength * 100)
+    }
+
+    /**
+     * Перевести проценты заполненности слайдера (0-100%) в проценты оффсета указателя слайдера
+     * @param {Number} percentage значение, которое мы хотим установить на слайдере (0-100%)
+     * @param {String} [mode] режим в котором находится слайдер (вертикальный или горизонтальный) (X/Y)
+     * @returns {Number}
+     */   
+    offsetFromPercentage(percentage, mode = this.state.mode) {
+        const slider = this.slider;
+        const originalLength = mode == 'X' ? slider.clientWidth : slider.clientHeight;
+        const maxPosition = originalLength - 60;
+        const offset = ((maxPosition/100*percentage)/originalLength)*100;
+        return offset;
+    }
+
+    /**
+     * Перевести проценты оффсета указателя слайдера в проценты его заполненности (выставленное значение)
+     * @param {Number} offset оффсет указателя слайдера
+     */    
+    percentageFromOffset(offset) {
+        const [ slider, mode ] = [ this.slider, this.state.mode ]
+        const originalLength = mode == 'X' ? slider.clientWidth : slider.clientHeight;
+        const maxPosition = originalLength - 60;
+        const pxOffset = (originalLength/100)*offset;
+        const percentage = (pxOffset/maxPosition)*100
+        return percentage;
+    }
+
+    /**
+     * Создает функцию для установки значения слайдеру
+     * @param {Object} slider DOM-Node-объект слайдера
+     * @param {Object} slidingThing объект указателя слайдера
+     * @param {Object} state состояние слайдера
+     * @returns {Function}
+     */   
+    setValue(value) {
+        const [ slider, slidingThing, state, mode ] = [ this.slider, this.slidingThing, this.state, this.state.mode ];
+        let property = mode == 'Y' ? 'bottom' : 'left';
+        state.offset = this.offsetFromPercentage(value);
         state.value = value;
-        slidingThing.style[property] = offset;
+        slidingThing.style[property] = state.offset + '%';
     }
-}
 
-/**
- * Создает функцию для получения значения слайдера
- * @param {Object} state состояние слайдера
- */
-function gv(state) {
-    return function getValue() {
-        return state.value;
+    get value() {
+        return this.state.value;
     }
-}
 
-/**
- * Создает функцию для ресайзинга слайдера
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Object} state состояние слайдера
- * @param {Object} slidingThing объект указателя слайдера
- */
-function rsz(slider, state, slidingThing) {
-    return function resize () {
-        state.mode = body.clientWidth <= 768 ? 'Y' : 'X';
-        state.offset = offsetFromPercentage(slider, state.value, state.mode);
-        slidingThing.style[state.mode == 'X' ? 'left' : 'top'] = state.offset.toFixed(2) + '%';
-        slidingThing.style[state.mode == 'Y' ? 'left' : 'top'] = 'auto';
-    }
-}
-
-/**
- * Инициализировать слайдер. Возвращает объект с методами для управления слайдером.
- * @param {Object} slider DOM-Node-объект слайдера
- * @param {Number} initialValue начальное значение (0-100)
- */
-function initSlider(slider, initialValue) {
-    const slidingThing = [...slider.children].find(child => [...child.classList].find(cl => cl == 'slider__sliding-thing'));
+    /**
+     * Полифилл для LayerX, LayerY, так как они не везде поддерживаются и их нет в тач ивентах
+     * @param {Object} e событие
+     */
+    layer(e) {
+        let slider = this.slider;
+        let x = 0;
+        let y = 0;
     
-    const state = {
-        value: initialValue,
-        offset: offsetFromPercentage(slider, initialValue, body.clientWidth <= 768 ? 'Y' : 'X'),
-        mode: body.clientWidth <= 768 ? 'Y' : 'X'
-    }
-    slidingThing.style[state.mode == 'X' ? 'left' : 'top'] = state.offset.toFixed(2) + '%';
-    slidingThing.style[state.mode == 'Y' ? 'left' : 'top'] = 'auto';
-
-    let isDown = false;
-    let position = 0;
-    function sliderMousedown(e) {
-        isDown = true;
-        position = layer(slider, e)[state.mode];
-        //position = e[`layer${state.mode}`];
-        state.offset = calculateOffset(slider, position, state.mode);
-        state.value = percentageFromOffset(slider, state.offset, state.mode);
-        slidingThing.style[state.mode == 'X' ? 'left' : 'top'] = state.offset.toFixed(2) + '%';
-    }
-    function sliderMousemove(e) {
-        if (!isDown) { return; }
-        //position += e[`movement${state.mode}`];
-        position = layer(slider, e)[state.mode];
-        state.offset = calculateOffset(slider, position, state.mode);
-        state.value = percentageFromOffset(slider, state.offset, state.mode);
-        slidingThing.style[state.mode == 'X' ? 'left' : 'top'] = state.offset.toFixed(2) + '%';
-    }
-    function sliderMouseup() { isDown = false };
-    
-    const resize = rsz(slider, state, slidingThing);
-    slider.addEventListener('mousedown', sliderMousedown);
-    slider.addEventListener('touchstart', sliderMousedown);
-    slider.addEventListener('mousemove', sliderMousemove);
-    slider.addEventListener('touchmove', sliderMousemove);
-    slider.addEventListener('mouseup', sliderMouseup);
-    window.addEventListener('resize', resize);
-    body.addEventListener('mouseup', sliderMouseup);
-
-    return {
-        setValue: sv(slider, slidingThing, state),
-        getValue: gv(state),
-        destroy: function destroy() {
-            const listeners = [
-                ['mousedown', sliderMousedown],
-                ['mouseup', sliderMouseup],
-                ['mousemove', sliderMousemove]
-            ].map(listener => {
-                slider.removeEventListener(listener[0], listener[1]);
-            });
-            window.removeEventListener('resize', resize);
+        while (slider && !isNaN(slider.offsetLeft) && !isNaN(slider.offsetTop)) {
+            x += slider.offsetLeft - slider.scrollLeft;
+            y += slider.offsetTop - slider.scrollTop;
+            slider = slider.offsetParent;
         }
+    
+        if (!e.clientX || !e.clientY) {
+            e = e.touches[0];
+        }
+    
+        let X = e.clientX - x;
+        let Y = e.clientY - y;
+        return { X, Y }
+    }
+
+    sliderMousedown(e) {
+        const state = this.state;
+        this.isDown = true;
+        this.position = this.layer(e)[state.mode];
+        state.offset = this.calculateOffset(this.position);
+        state.value = this.percentageFromOffset(state.offset);
+        this.slidingThing.style[state.mode == 'X' ? 'left' : 'bottom'] = state.offset.toFixed(2) + '%';
+    }
+
+    sliderMousemove(e) {
+        const state = this.state;
+        if (!this.isDown) { return; }
+        this.position = this.layer(e)[state.mode];
+        state.offset = this.calculateOffset(this.position);
+        state.value = this.percentageFromOffset(state.offset);
+        this.slidingThing.style[state.mode == 'X' ? 'left' : 'bottom'] = state.offset.toFixed(2) + '%';
+    }
+
+    sliderMouseup() { this.isDown = false }
+
+    resize() {
+        this.state.mode = body.clientWidth <= 768 ? 'Y' : 'X';
+        this.state.offset = this.offsetFromPercentage(this.state.value);
+        this.slidingThing.style[this.state.mode == 'X' ? 'left' : 'bottom'] = this.state.offset.toFixed(2) + '%';
+        this.slidingThing.style[this.state.mode == 'Y' ? 'left' : 'bottom'] = 'auto';
     }
 }
 
-module.exports = {
-    initSlider
-}
+module.exports = Slider;

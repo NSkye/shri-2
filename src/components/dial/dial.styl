@@ -12,8 +12,10 @@
         height 110px
         width 1px
         transform-origin 50% 100%
-        background-color #F9CF88
+        background-color $activeText
         z-index 1
+        &--active
+            background-color #F9CF88
         for i in (1..115)
             &:nth-child({i})
                 transform rotate(((i*2.55)+180+32.375)deg)

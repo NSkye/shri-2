@@ -22,13 +22,37 @@ class Slider {
         this.isDown = false;
         this.position = 0;
 
-        slider.addEventListener('mousedown', this.sliderMousedown.bind(this));
-        slider.addEventListener('touchstart', this.sliderMousedown.bind(this));
-        slider.addEventListener('mousemove', this.sliderMousemove.bind(this));
-        slider.addEventListener('touchmove', this.sliderMousemove.bind(this));
-        slider.addEventListener('mouseup', this.sliderMouseup.bind(this));
-        window.addEventListener('resize', this.resize.bind(this));
-        body.addEventListener('mouseup', this.sliderMouseup.bind(this));
+        this.sliderListeners = [
+            [ 'mousedown', this.sliderMousedown ],
+            [ 'touchstart', this.sliderMousedown ],
+            [ 'mousemove', this.sliderMousemove ],
+            [ 'touchmove', this.sliderMousemove ],
+            [ 'mouseup', this.sliderMouseup ],
+        ].map(item => {
+            const listener = item[1].bind(this);
+            this.slider.addEventListener(item[0], listener);
+            return [ item[0], listener ]
+        });
+
+        this.otherListeners = [
+            [ window, 'resize', this.resize ],
+            [ body, 'mouseup', this.sliderMouseup ]
+        ].map(item => {
+            const el = item[0];
+            const eventName = item[1];
+            const listener = item[2].bind(this);
+            el.addEventListener(eventName, listener);
+            return [ el, eventName, listener ]
+        });
+    }
+
+    destroy() {
+        this.sliderListeners.map(item => {
+            this.slider.removeEventListener(item[0], item[1]);
+        });
+        this.otherListeners.map(item => {
+            item[0].removeEventListener(item[1], item[2]);
+        });
     }
 
     /**

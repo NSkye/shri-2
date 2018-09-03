@@ -33,6 +33,7 @@ function reveal() {
 
 function hide() {
     popupLight.classList.remove('pop-up-light--reveal');
+    sliderInstance.destroy();
 }
 
 let ic;

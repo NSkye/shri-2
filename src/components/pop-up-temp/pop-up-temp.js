@@ -33,6 +33,7 @@ function reveal() {
 
 function hide() {
     popupTemp.classList.remove('pop-up-temp--reveal');
+    sliderInstance.destroy();
 }
 
 let ic;

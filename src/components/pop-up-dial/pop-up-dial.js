@@ -23,6 +23,7 @@ function reveal() {
 
 function hide() {
     popupDial.classList.remove('pop-up-dial--reveal');
+    dial.destroy();
 }
 
 let ic;
